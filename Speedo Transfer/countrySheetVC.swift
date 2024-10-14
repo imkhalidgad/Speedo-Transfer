@@ -10,15 +10,12 @@ protocol CountrySelectionDelegate: AnyObject {
     func didSelectCountry(country: Country)
 }
 
-struct Country {
-    let image: UIImage
-    let label: String
-}
+
 class countrySheetVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
     weak var delegate: CountrySelectionDelegate?
     
-    var countries: [Country] = [Country(image: UIImage(named: "unitedStates")!, label: "unitedStates")]
+    var countries: [Country] = [Country(image: UIImage(named: "Egypt")!, label: "Egypt"), Country(image: UIImage(named: "unitedStates")!, label: "US") ]
     
     @IBOutlet weak var countrySheetTableView: UITableView!
     

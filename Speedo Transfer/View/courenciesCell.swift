@@ -1,16 +1,17 @@
 //
-//  CurrencyCell.swift
-//  SpeedoTransfer
+//  courenciesCell.swift
+//  Speedo Transfer
 //
+//  Created by Mahmoud ELsharkawy on 06/08/2024.
 //
 
 import UIKit
 
-class CurrencyCell: UITableViewCell {
+class courenciesCell: UITableViewCell {
+
+    @IBOutlet weak var cournciesImg: UIImageView!
+    @IBOutlet weak var cournciesLabel: UILabel!
     
-    @IBOutlet weak var currencyImage: UIImageView!
-    @IBOutlet weak var currencyLabel: UILabel!
-    @IBOutlet weak var checkImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -18,6 +19,7 @@ class CurrencyCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+
         // Configure the view for the selected state
     }
 

@@ -17,11 +17,14 @@ class transferAmount3VC: UIViewController {
     
     @IBAction func backHomeBtnTapped(_ sender: Any) {
         self.tabBarController?.selectedIndex = 0
+        
+        let balance = "$425"
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "balanceID"), object: nil, userInfo: ["balance":balance])
     }
     
     
     @IBAction func addFavouriteBtnTapped(_ sender: Any) {
-        
+        showALert(title: "Add To Favourite", message: "Added in Favourite List Successfully!")
     }
     
     

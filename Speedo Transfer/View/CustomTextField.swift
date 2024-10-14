@@ -82,9 +82,6 @@ class CustomTextField: UITextField {
         }
     }
 
-//    private func showCountryPicker() {
-//    }
-
     private func showDatePicker() {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date

@@ -19,7 +19,7 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         
         self.fetchAccountBalance()
-       //UserDefaultsManager.shared().isLoggedIn = true
+    //UserDefaultsManager.shared().isLoggedIn = true
         self.navigationItem.hidesBackButton = true
         hiddenBalanceButton.layer.cornerRadius = hiddenBalanceButton.frame.width/2
         hiddenBalanceButton.layer.masksToBounds = true
@@ -28,7 +28,15 @@ class HomeVC: UIViewController {
         homeTableView.dataSource = self
         homeTableView.allowsSelection = false
         homeTableView.isScrollEnabled = false
+        
+        // notification for Favourites
+        NotificationCenter.default.addObserver(self, selector: #selector (newBalance), name: NSNotification.Name(rawValue: "balanceID"), object: nil)
     }
+    
+    @objc func newBalance(notification: Notification){
+            
+                balanceLabel.text = "$425"
+        }
     
     private func fetchAccountBalance() {
         // Use the token from the Session singleton
@@ -36,7 +44,7 @@ class HomeVC: UIViewController {
         
         if token.isEmpty {
             print("Token is empty")
-            self.balanceLabel.text = "1000 EG"
+            self.balanceLabel.text = "$1000"
             return
         }
        
@@ -47,7 +55,7 @@ class HomeVC: UIViewController {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let balance):
-                    self.balanceLabel.text = "\(balance) EG"
+                    self.balanceLabel.text = "$\(balance)"
                 case .failure(let error):
                     print("Error fetching balance: \(error)")
                     self.showALert(title: "Error", message: "Failed to fetch account balance.")

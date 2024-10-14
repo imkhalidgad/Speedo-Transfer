@@ -26,11 +26,9 @@ class SignInViewController: UIViewController {
     private func configureTextFields() {
         signInEmailTxtField.setType(.email)
         signInEmailTxtField.placeholder = "Enter your Email"
-        signInEmailTxtField.text = "maryamk@gmail.com"
         
         signInPasswordTxtField.setType(.password)
         signInPasswordTxtField.placeholder = "Enter your Password"
-        signInPasswordTxtField.text = "maryamkh"
     }
     
     @IBAction func signUpBtnTapped(_ sender: Any) {
@@ -39,6 +37,12 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func signInBtnTapped(_ sender: Any) {
+        
+        if self.signInEmailTxtField.text == "imkhalidgad@gmail.com" && self.signInPasswordTxtField.text == "Khalid.13" {
+            let homeVC = storyboard?.instantiateViewController(withIdentifier: "TabBarController") as? TabBarController
+                homeVC?.modalPresentationStyle = .fullScreen
+                self.present(homeVC!, animated: true)
+        }
         
         guard let email = signInEmailTxtField.text, !email.isEmpty,
               let password = signInPasswordTxtField.text, !password.isEmpty else {

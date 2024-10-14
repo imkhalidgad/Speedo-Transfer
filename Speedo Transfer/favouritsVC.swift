@@ -7,6 +7,14 @@ import UIKit
 
 class favouritsVC: UIViewController {
 
+    var favArray:[Favourites] = [
+        Favourites(accountName: "Ahmed Adel", accountNumber: "6178 8490 9271 9274"),
+        Favourites(accountName: "Mahmoud ElSharkawy", accountNumber: "2947 4958 2849 8294"),
+        Favourites(accountName: "Ahmed Ashraf", accountNumber: "4559 2947 4758 2948"),
+        Favourites(accountName: "Shery Hany", accountNumber: "0945 47294 9284 8271"),
+    ]
+    
+    
     @IBOutlet weak var favoritsTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,20 +29,33 @@ class favouritsVC: UIViewController {
 }
 extension favouritsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return favArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = favoritsTableView.dequeueReusableCell(withIdentifier: "favoritsTableViewCell", for: indexPath) as? favoritsTableViewCell else {
             return favoritsTableViewCell()
         }
-            cell.favLabelName.text = "Khalid Gad"
-            cell.favAccLabel.text = "Account xxxx7890"
+        
+        let fav = favArray[indexPath.row]
+        
+        cell.favLabelName.text = fav.accountName
+        cell.favAccLabel.text = fav.accountNumber
+
             return cell
+        
         }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.dismiss(animated: true, completion: nil)
+        
+        let vc = storyboard?.instantiateViewController(identifier: "transferAmountVC") as? transferAmountVC
+        
+        let fav = favArray[indexPath.row]
+        let favInfo = Favourites(accountName: fav.accountName, accountNumber: fav.accountNumber)
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "favID"), object: nil, userInfo: ["favInfo":favInfo])
+        
+        self.dismiss(animated: true)
     }
     
   

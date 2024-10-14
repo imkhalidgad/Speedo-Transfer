@@ -226,7 +226,11 @@ public class SheetContentViewController: UIViewController {
         self.childViewController.didMove(toParent: self)
         
         self.childContainerView.layer.masksToBounds = true
-        self.childContainerView.layer.compatibleMaskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        if #available(iOS 11.0, *) {
+            self.childContainerView.layer.compatibleMaskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        } else {
+            // Fallback on earlier versions
+        }
     }
 
     private func setupContentView() {
@@ -242,7 +246,11 @@ public class SheetContentViewController: UIViewController {
         }
         
         self.contentWrapperView.layer.masksToBounds = true
-        self.contentWrapperView.layer.compatibleMaskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        if #available(iOS 11.0, *) {
+            self.contentWrapperView.layer.compatibleMaskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        } else {
+            // Fallback on earlier versions
+        }
                 
         self.contentView.addSubview(overflowView) {
             $0.edges(.left, .right).pinToSuperview()

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eIJ-VW-ncV">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -16,11 +17,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speedo Transfer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3j-Yz-i6M">
-                                <rect key="frame" x="92.666666666666686" y="419" width="230" height="39"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Br3-sy-1xV">
+                                <rect key="frame" x="96.666666666666686" y="245" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="230" id="8pu-UX-04o"/>
-                                    <constraint firstAttribute="height" constant="39" id="COs-dQ-Ubo"/>
+                                    <constraint firstAttribute="width" constant="200" id="R65-md-oXV"/>
+                                    <constraint firstAttribute="height" constant="200" id="Yxr-jf-Fi0"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speedo Transfer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3j-Yz-i6M">
+                                <rect key="frame" x="81.666666666666686" y="453" width="230" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="Oyv-Hp-Gd0"/>
+                                    <constraint firstAttribute="width" constant="230" id="Zo6-2P-7bA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="textColor" name="LaunchSpeedoColor"/>
@@ -28,22 +36,22 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Q62-Gi-oZf"/>
-                        <color key="backgroundColor" name="LaunchScreenColor"/>
+                        <color key="backgroundColor" red="0.47799366710000002" green="0.1012893245" blue="0.181168884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="g3j-Yz-i6M" firstAttribute="centerY" secondItem="Q62-Gi-oZf" secondAttribute="centerY" id="h9e-sb-Ldx"/>
-                            <constraint firstItem="g3j-Yz-i6M" firstAttribute="centerX" secondItem="Q62-Gi-oZf" secondAttribute="centerX" constant="11" id="xY8-hv-GPF"/>
+                            <constraint firstItem="g3j-Yz-i6M" firstAttribute="top" secondItem="Br3-sy-1xV" secondAttribute="bottom" constant="8" symbolic="YES" id="9m5-Q8-NRa"/>
+                            <constraint firstItem="Br3-sy-1xV" firstAttribute="top" secondItem="Q62-Gi-oZf" secondAttribute="top" constant="186" id="Oou-Aj-3NI"/>
+                            <constraint firstItem="Br3-sy-1xV" firstAttribute="centerX" secondItem="Q62-Gi-oZf" secondAttribute="centerX" id="Ukf-m1-eT4"/>
+                            <constraint firstItem="g3j-Yz-i6M" firstAttribute="centerX" secondItem="Q62-Gi-oZf" secondAttribute="centerX" id="WUN-2m-ZFX"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Bx-7M-tId" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+            <point key="canvasLocation" x="51.145038167938928" y="374.64788732394368"/>
         </scene>
     </scenes>
     <resources>
-        <namedColor name="LaunchScreenColor">
-            <color red="0.32156862745098042" green="0.070588235294117646" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="Logo" width="519" height="481"/>
         <namedColor name="LaunchSpeedoColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

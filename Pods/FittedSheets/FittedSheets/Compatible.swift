@@ -19,6 +19,7 @@ extension UIView {
 }
 
 extension CALayer {
+    @available(iOS 11.0, *)
     public var compatibleMaskedCorners: CACornerMask {
         get {
             if #available(iOS 11.0, *) {
